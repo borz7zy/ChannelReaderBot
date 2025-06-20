@@ -18,7 +18,7 @@ def contains_ignored_tags(text: str) -> bool:
     return any(tag in text_lower for tag in IGNORE_TAGS)
 
 
-@client.on(events.NewMessage())
+@client.on(events.NewMessage(incoming=True, outgoing=False))
 async def handler(event):
     try:
         if not event.message or not event.message.peer_id:
@@ -46,10 +46,7 @@ async def handler(event):
         print(f"[ERROR] Ошибка обработки сообщения: {e}")
 
 
-async def main():
-    print("[INFO] Бот запущен. Ожидание сообщений...")
-    await client.run_until_disconnected()
-
-
 if __name__ == "__main__":
-    client.loop.run_until_complete(main())
+    print("[INFO] Бот запущен. Ожидание сообщений...")
+    client.start()
+    client.run_until_disconnected()
