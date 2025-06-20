@@ -1,0 +1,10 @@
+.venv/
+.idea/
+ChannelReaderBot.session
+ChannelReaderBot.session-journal
+log.txt
+test_script.py
+posts.db
+my_session.session
+my_session.session-journal
+config.py
