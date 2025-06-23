@@ -3,10 +3,10 @@ from telethon import TelegramClient, events
 
 
 client = TelegramClient(
-    session="my_session",
+    session=config.ACCOUNT_NAME,
     api_id=config.API_ID,
     api_hash=config.API_HASH,
-    system_version="4.16.30-vxChannel"
+    system_version=config.SYSTEM_VERSION
 )
 
 CHANNELS = {ch.lower().lstrip('@') for ch in config.CHANNELS}

@@ -20,7 +20,9 @@ set TELEGRAM_ACCOUNT_NAME=MyAccount
 """
 API_ID = os.getenv("TELEGRAM_API_ID")  # api_id из my.telegram.org/apps
 API_HASH = os.getenv("TELEGRAM_API_HASH")  # api_hash из my.telegram.org/apps
-ACCOUNT_NAME = os.getenv("TELEGRAM_ACCOUNT_NAME")  # указать название сессии
+ACCOUNT_NAME = os.getenv("TELEGRAM_ACCOUNT_NAME", "my_session")  # указать название сессии
+
+SYSTEM_VERSION = os.getenv("TELEGRAM_SYSTEM_VERSION", "4.16.30-vxChannel")
 
 CHANNELS = [
 

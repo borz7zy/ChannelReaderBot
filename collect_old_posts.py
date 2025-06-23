@@ -33,10 +33,10 @@ async def fetch_messages(client, channel):
 
 async def main():
     async with TelegramClient(
-            session="my_session",
+            session=config.ACCOUNT_NAME,
             api_id=config.API_ID,
             api_hash=config.API_HASH,
-            system_version="4.16.30-vxChannel"
+            system_version=config.SYSTEM_VERSION
     ) as client:
 
         all_messages = []
