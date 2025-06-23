@@ -81,8 +81,7 @@ async def main():
             await client.send_file(
                 config.FORWARD_TO_CHAT,
                 file=csv_bytes,
-                caption=f"Собрано {len(all_messages)} сообщений",
-                reply_to=config.FORWARD_TO_CHAT_TOPIC
+                caption=f"Собрано {len(all_messages)} сообщений"
             )
             print("[INFO] CSV успешно отправлен.")
         except errors.FloodWaitError as e:

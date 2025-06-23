@@ -1,5 +1,6 @@
 import config
 from telethon import TelegramClient, events
+from telethon.tl.types import MessageMediaStory
 
 
 client = TelegramClient(
@@ -28,6 +29,9 @@ async def handler(event):
         if not sender or not getattr(sender, 'username', None):
             return
 
+        if isinstance(event.message.media, MessageMediaStory):
+            return
+
         sender_username = sender.username.lower()
         if sender_username not in CHANNELS:
             return
@@ -36,10 +40,9 @@ async def handler(event):
         if contains_ignored_tags(message_text):
             return
 
-        await client.send_message(
+        await client.forward_messages(
             config.FORWARD_TO_CHAT,
-            message=event.message,
-            reply_to=config.FORWARD_TO_CHAT_TOPIC
+            messages=event.message
         )
 
     except Exception as e:

@@ -22,7 +22,8 @@ API_ID = os.getenv("TELEGRAM_API_ID")  # api_id из my.telegram.org/apps
 API_HASH = os.getenv("TELEGRAM_API_HASH")  # api_hash из my.telegram.org/apps
 ACCOUNT_NAME = os.getenv("TELEGRAM_ACCOUNT_NAME", "my_session")  # указать название сессии
 
-SYSTEM_VERSION = os.getenv("TELEGRAM_SYSTEM_VERSION", "4.16.30-vxChannel")
+SYSTEM_VERSION = os.getenv("TELEGRAM_SYSTEM_VERSION", "4.16.30-vxChannel")  # версия приложения, если будет выкидывать
+                                                                            # из сессии - поменять
 
 CHANNELS = [
 
@@ -35,4 +36,3 @@ MONTH = datetime.now(timezone.utc) - timedelta(days=30)  # Период для �
 # (сейчас последние 30 дней)
 
 FORWARD_TO_CHAT = 1  # ID чата, в который требуется отправить файл с собранными вакансиями
-FORWARD_TO_CHAT_TOPIC = 1  # ID топика, в который требуется отправить файл с вакансиями
